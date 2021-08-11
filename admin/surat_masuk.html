@@ -1,0 +1,384 @@
+ <DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <title>Admin | Papan Informasi Digital</title>
+    <!-- Custom CSS -->
+    <link href="assets/extra-libs/c3/c3.min.css" rel="stylesheet">
+    <link href="assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
+    <link href="assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="dist/css/style.min.css" rel="stylesheet">
+
+    <!-- Datatables -->
+    <link rel="stylesheet" type="text/css" href="datatables/DataTables-1.10.22/css/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" type="text/css" href="datatables/Buttons-1.6.4/css/buttons.bootstrap4.min.css" />
+
+    <script type="text/javascript" src="datatables/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="datatables/JSZip-2.5.0/jszip.min.js"></script>
+    <script type="text/javascript" src="datatables/JSZip-2.5.0/jszip.min.js"></script>
+    <script type="text/javascript" src="datatables/pdfmake-0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="datatables/pdfmake-0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="datatables/DataTables-1.10.22/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="datatables/DataTables-1.10.22/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="datatables/Buttons-1.6.4/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="datatables/Buttons-1.6.4/js/buttons.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="datatables/Buttons-1.6.4/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="datatables/Buttons-1.6.4/js/buttons.print.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="firebase/firebase-login.js"></script>
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar" data-navbarbg="skin6">
+            <nav class="navbar top-navbar navbar-expand-md">
+                <div class="navbar-header" data-logobg="skin6">
+                    <!-- This is for the sidebar toggle which is visible on mobile only -->
+                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i
+                            class="ti-menu ti-close"></i></a>
+                    <!-- ============================================================== -->
+                    <!-- Logo -->
+                    <!-- ============================================================== -->
+                    <div class="navbar-brand">
+                        <!-- Logo icon -->
+                        <a href="index.html">
+                            <!--End Logo icon -->
+                            <!-- Logo text -->
+                            <span class="logo-text">
+                                <!-- Dark Logo icon -->
+                                <small class="dark-logo" style="color: black;">Admin | Papan Informasi Digital</small>
+                                <!-- Light Logo icon -->
+                                <p class="light-logo">ardi</p>
+                            </span>
+                        </a>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- End Logo -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- Toggle which is visible on mobile only -->
+                    <!-- ============================================================== -->
+                    <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)"
+                        data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar" data-sidebarbg="skin6">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar" data-sidebarbg="skin6">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link active" href="index.html" aria-expanded="false"><i
+                                    data-feather="home" class="feather-icon"></i><span
+                                    class="hide-menu">Dashboard</span></a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="data_admin.html" aria-expanded="false"><i
+                                    class="icon-user"></i><span class="hide-menu">Data Admin</span></a>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                                aria-expanded="false"><i class="mr-2 fas fa-graduation-cap"></i><span
+                                    class="hide-menu">Pembelajaran</span></a>
+                            <ul aria-expanded="false" class="collapse first-level base-level-line">
+                                <li class="sidebar-item"><a href="pembelajaran_program.html" class="sidebar-link"><span
+                                            class="hide-menu">
+                                            Program
+                                        </span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="pembelajaran_multimedia.html"
+                                        class="sidebar-link"><span class="hide-menu"> Multimedia
+                                        </span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="pembelajaran_jaringan.html" class="sidebar-link"><span
+                                            class="hide-menu">
+                                            Jaringan
+                                        </span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="pembelajaran_hardware.html" class="sidebar-link"><span
+                                            class="hide-menu">
+                                            Hardware
+                                        </span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                                aria-expanded="false"><i class="mr-2 fas fa-users"></i><span
+                                    class="hide-menu">Keorganisasian</span></a>
+                            <ul aria-expanded="false" class="collapse first-level base-level-line">
+                                <li class="sidebar-item"><a href="piket.html" class="sidebar-link"><span
+                                            class="hide-menu"> Piket
+                                        </span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="nginap.html" class="sidebar-link"><span
+                                            class="hide-menu"> Nginap
+                                        </span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                                aria-expanded="false"><i class="mr-2 fas fa-briefcase"></i><span
+                                    class="hide-menu">Program Kerja</span></a>
+                            <ul aria-expanded="false" class="collapse first-level base-level-line">
+                                <li class="sidebar-item"><a href="keorganisasian.html" class="sidebar-link"><span
+                                            class="hide-menu">
+                                            Keorganisasian
+                                        </span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="public&relation.html" class="sidebar-link"><span
+                                            class="hide-menu"> Public
+                                            & Relation
+                                        </span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="tools&properties.html" class="sidebar-link"><span
+                                            class="hide-menu"> Tools
+                                            & Properties
+                                        </span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="keilmuan.html" class="sidebar-link"><span
+                                            class="hide-menu"> Keilmuan
+                                        </span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="inventaris.html" aria-expanded="false"><i
+                                    class="icon-user"></i><span class="hide-menu">Inventaris</span></a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="surat_masuk.html" aria-expanded="false"><i class="icon-user"></i><span
+                                    class="hide-menu">Surat Masuk</span></a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="login.html" onclick="logout()" aria-expanded="false"><i
+                                    data-feather="power" class="feather-icon"></i><span
+                                    class="hide-menu">Logout</span></a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-12 align-self-center">
+                        <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Data Inventaris</h3>
+                    </div>
+                </div>
+            </div>
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body overflow-auto">
+                                <button class="btn btn-sm waves-effect waves-light btn-rounded btn-primary mb-3"
+                                    data-toggle="modal" data-target="#bs-example-modal-lg">Tambah Data</button>
+                                <table id="example" class="table table-striped" class="responsive display nowrap"
+                                    cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nomor Surat</th>
+                                            <th>Asal Surat</th>
+                                            <th>Perihal</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-surat">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- *************************************************************** -->
+                <!-- End Top Leader Table -->
+                <!-- *************************************************************** -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer text-center text-muted">
+
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- Modal Tambah Data mobil-->
+    <div class="modal fade" id="bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myLargeModalLabel">Tambah Data Surat</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-surat" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label>Nomor Surat</label>
+                            <input type="text" class="form-control" id="no_surat" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group">
+                            <label>Asal Surat</label>
+                            <input type="text" class="form-control" id="asal_surat" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group">
+                            <label>Perihal</label>
+                            <input type="text" class="form-control" id="perihal" aria-describedby="emailHelp">
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+    <!-- Modal Tambah Data mobil-->
+    <div class="modal fade" id="bs-example-modal-lg-2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myLargeModalLabel">Edit Data Surat</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-surat-edit" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label>Nomor Surat</label>
+                            <input type="text" class="form-control" id="no_surat-edit" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group">
+                            <label>Asal Surat</label>
+                            <input type="text" class="form-control" id="asal-edit" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group">
+                            <label>Perihal</label>
+                            <input type="text" class="form-control" id="perihal-edit" aria-describedby="emailHelp">
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- ============================================================== -->
+    <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script> -->
+    <!-- apps -->
+    <!-- apps -->
+    <script src="dist/js/app-style-switcher.js"></script>
+    <script src="dist/js/feather.min.js"></script>
+    <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="dist/js/custom.min.js"></script>
+    <!--This page JavaScript -->
+    <script src="assets/extra-libs/c3/d3.min.js"></script>
+    <script src="assets/extra-libs/c3/c3.min.js"></script>
+    <script src="assets/libs/chartist/dist/chartist.min.js"></script>
+    <script src="assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="dist/js/pages/dashboards/dashboard1.min.js"></script>
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first !Harus Didefinisikan semua 4-->
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
+    <script src="firebase/firebase-surat.js"></script>
+
+    <!-- SCRIPT JS UNTUK MEMBLOK INPUTAN SELAIN ANGKA -->
+    <script type="text/javascript">
+        function Angkasaja(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+    </script>
+
+</body>
+
+</html>

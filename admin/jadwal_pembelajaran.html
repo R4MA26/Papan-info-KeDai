@@ -48,7 +48,6 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script src="firebase/firebase-login.js"></script>
 </head>
 
 <body>
@@ -185,7 +184,7 @@
                            <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false"><i
                                     class="mr-2 fas fa-users"></i><span class="hide-menu">Jadwal</span></a>
                             <ul aria-expanded="false" class="collapse first-level base-level-line">
-                                <li class="sidebar-item"><a href="pembelajaran.html" class="sidebar-link"><span class="hide-menu"> Jadwal Pembelajaran
+                                <li class="sidebar-item"><a href="jadwal_pembelajaran.html" class="sidebar-link"><span class="hide-menu"> Jadwal Pembelajaran
                                         </span></a>
                                 </li>
                                 <li class="sidebar-item"><a href="membersihkan.html" class="sidebar-link"><span class="hide-menu"> Jadwal Membersihkan
@@ -254,34 +253,8 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="table-pemateri">
+                                    <tbody id="table-jadwalpembelajaran">
 
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body overflow-auto">
-                                <button class="btn btn-sm waves-effect waves-light btn-rounded btn-primary mb-3" data-toggle="modal"
-                                    data-target="#bs-example-modal-lg-3">Tambah Data Peserta</button>
-                                <table id="example2" class="table table-striped" class="responsive display nowrap" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Senin</th>
-                                            <th>Selasa</th>
-                                            <th>Rabu</th>
-                                            <th>Kamis</th>
-                                            <th>Jumat</th>
-                                            <th>Sabtu</th>
-                                            <th>Minggu</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="table-peserta">
-                
                                     </tbody>
                                 </table>
                             </div>
@@ -314,40 +287,39 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myLargeModalLabel">Tambah Data Pemateri</h4>
+                    <h4 class="modal-title" id="myLargeModalLabel">Tambah Data Jadwal Pembelajaran</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
-                    <form id="form-pemateri" enctype="multipart/form-data">
+                    <form id="form-jadwalpembelajaran" enctype="multipart/form-data">
                         <div class="form-group">
                             <label>Senin</label>
-                            <input type="text" class="form-control" id="senin" aria-describedby="emailHelp">
+                            <input type="text"  class="form-control" id="senin-jadwal" aria-describedby="emailHelp" >
                         </div>
                         <div class="form-group">
                             <label>Selasa</label>
-                            <input type="text" class="form-control" id="selasa" aria-describedby="emailHelp">
+                            <input type="text"  class="form-control" id="selasa-jadwal" aria-describedby="emailHelp" >
                         </div>
                         <div class="form-group">
                             <label>Rabu</label>
-                            <input type="text" class="form-control" id="rabu" aria-describedby="emailHelp">
+                            <input type="text"  class="form-control" id="rabu-jadwal" aria-describedby="emailHelp" >
                         </div>
                         <div class="form-group">
                             <label>Kamis</label>
-                            <input type="text" class="form-control" id="kamis" aria-describedby="emailHelp">
+                            <input type="text"  class="form-control" id="kamis-jadwal" aria-describedby="emailHelp" >
                         </div>
                         <div class="form-group">
                             <label>Jumat</label>
-                            <input type="text" class="form-control" id="jumat" aria-describedby="emailHelp">
+                            <input type="text"  class="form-control" id="jumat-jadwal" aria-describedby="emailHelp" >
                         </div>
                         <div class="form-group">
                             <label>Sabtu</label>
-                            <input type="text" class="form-control" id="sabtu" aria-describedby="emailHelp">
+                            <input type="text"  class="form-control" id="sabtu-jadwal" aria-describedby="emailHelp" >
                         </div>
                         <div class="form-group">
                             <label>Minggu</label>
-                            <input type="text" class="form-control" id="minggu" aria-describedby="emailHelp">
+                            <input type="text"  class="form-control" id="minggu-jadwal" aria-describedby="emailHelp" >
                         </div>
-                                            
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -405,63 +377,6 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-
-    <div class="modal fade" id="bs-example-modal-lg-3" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myLargeModalLabel">Tambah Data Peserta</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                </div>
-                <div class="modal-body">
-                    <form id="form-peserta" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label>Nama Peserta</label>
-                            <input type="text" class="form-control" id="nama-peserta" aria-describedby="emailHelp">
-                        </div>
-                        <div class="form-group">
-                            <label>No. Registrasi</label>
-                            <input type="text" class="form-control" id="noreg-peserta" aria-describedby="emailHelp">
-                        </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
-    <div class="modal fade" id="bs-example-modal-lg-4" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myLargeModalLabel">Edit Data Peserta</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                </div>
-                <div class="modal-body">
-                    <form id="form-peserta-edit" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label>Nama Peserta</label>
-                            <input type="text" class="form-control" id="nama-peserta-edit" aria-describedby="emailHelp">
-                        </div>
-                        <div class="form-group">
-                            <label>No. Registrasi</label>
-                            <input type="text" class="form-control" id="noreg-peserta-edit" aria-describedby="emailHelp">
-                        </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
     <!-- ============================================================== -->
     <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script> -->
@@ -492,53 +407,12 @@
 
     <!-- Rama-firebase -->
     <!-- Firebase Libraries -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-database.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-storage.js"></script>
+    <script src="firebase/firebase-jadwalpembelajaran.js"></script>
 
-    <!-- Rama-firebase -->
-    <script id="MainScript">
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyD8E6YYoIcZByQ4qnTOgufCAV2PbkfNEzY",
-            authDomain: "papan-info-kedai-1296c.firebaseapp.com",
-            databaseURL: "https://papan-info-kedai-1296c-default-rtdb.firebaseio.com",
-            projectId: "papan-info-kedai-1296c",
-            storageBucket: "papan-info-kedai-1296c.appspot.com",
-            messagingSenderId: "488943574446",
-            appId: "1:488943574446:web:762068121a10bc61193c3f"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        // Ambil Data
-        var seninV, selasaV, rabuV, kamisV, jumatV, sabtuV, mingguV;
-
-        function Ready() {
-            seninV = document.getElementById('senin').value;
-            selasaV = document.getElementById('selasa').value;
-            rabuV = document.getElementById('rabu').value;
-            kamisV = document.getElementById('kamis').value;
-            jumatV = document.getElementById('jumat').value;
-            sabtuV = document.getElementById('sabtu').value;
-            mingguV = document.getElementById('minggu').value;
-        }
-        // insert data
-        document.getElementById('insert').onclick = function(){
-            Ready();
-            firebase.database().ref('jadwal/'+seninV).set({
-                Senin: seninV,
-                Selasa: selasaV,
-                Rabu: rabuV,
-                Kamis: kamisV,
-                Jumat: jumatV,
-                Sabtu: sabtuV,
-                Minggu: mingguV
-            });
-        }
-
-        
-
-    </script>
 
     <!-- SCRIPT JS UNTUK MEMBLOK INPUTAN SELAIN ANGKA -->
     <script type="text/javascript">

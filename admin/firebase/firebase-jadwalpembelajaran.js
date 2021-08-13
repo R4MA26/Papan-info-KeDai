@@ -1,12 +1,11 @@
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyD8E6YYoIcZByQ4qnTOgufCAV2PbkfNEzY",
-    authDomain: "papan-info-kedai-1296c.firebaseapp.com",
-    databaseURL: "https://papan-info-kedai-1296c-default-rtdb.firebaseio.com",
-    projectId: "papan-info-kedai-1296c",
-    storageBucket: "papan-info-kedai-1296c.appspot.com",
-    messagingSenderId: "488943574446",
-    appId: "1:488943574446:web:762068121a10bc61193c3f"
+// Your web app's Firebase configuration
+var firebaseConfig = {
+    apiKey: "AIzaSyBozP-nzVAwq3UNF4yu0AM2V1T9pweXNPo",
+    authDomain: "fir-papaninformasi.firebaseapp.com",
+    projectId: "fir-papaninformasi",
+    storageBucket: "fir-papaninformasi.appspot.com",
+    messagingSenderId: "920683588565",
+    appId: "1:920683588565:web:0d12936bf5cb11f0c56b5c"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
@@ -26,73 +25,40 @@ var id = counter;
 var db = firebase.database();
 
 //referensi untuk tampilkan data
-var pemateriRef = db.ref("jadwal/pemateri");
+var jadwalRef = db.ref("jadwal/pembelajaran");
 
 //referensi untuk tambah data 
-var addpemateriRef = db.ref("jadwal/pemateri/" + id);
-//referensi untuk tampilkan data
-var pesertaRef = db.ref("jadwal/peserta");
-
-//referensi untuk tambah data 
-var addpesertaRef = db.ref("jadwal/peserta/" + id);
+var addjadwalRef = db.ref("jadwal/pembelajaran" + id);
 
 // PEMATERI SECTION
 /*================Mengambil data dari form=================*/
-document.getElementById("form-pemateri").addEventListener("submit", e   => {
-    var senin = document.getElementById("senin").value;
-    var selasa = document.getElementById("selasa").value;
-    var rabu = document.getElementById("rabu").value;
-    var kamis = document.getElementById("kamis").value;
-    var jumat = document.getElementById("jumat").value;
-    var sabtu = document.getElementById("sabtu").value;
-    var minggu = document.getElementById("minggu").value;
-    // get your select image
-    // var image = document.getElementById("gambar-pemateri").files[0];
+document.getElementById("form-jadwalpembelajaran").addEventListener("submit", e => {
+    var senin = document.getElementById("senin-jadwal").value;
+    var selasa = document.getElementById("selasa-jadwal").value;
+    var rabu = document.getElementById("rabu-jadwal").value;
+    var kamis = document.getElementById("kamis-jadwal").value;
+    var jumat = document.getElementById("jumat-jadwal").value;
+    var sabtu = document.getElementById("sabtu-jadwal").value;
+    var minggu = document.getElementById("minggu-jadwal").value;
     e.preventDefault();
-    createPemateri(id, senin, selasa, rabu, kamis, jumat, sabtu, minggu);
+    createJadwalPembelajaran(id, senin, selasa, rabu, kamis, jumat, sabtu, minggu);
 });
 
-function createPemateri(id, senin, selasa, rabu, kamis, jumat, sabtu, minggu); {
-    //============UPLOAD IMAGE ==================//
-    //now get your image name
-    var imageName = image.name;
-    //firebase  storage reference
-    //it is the path where yyour image will store
-    var storageRef = firebase.storage().ref('program/pemateri/' + imageName);
-    //upload image to selected storage reference
-
-    var uploadTask = storageRef.put(image);
-
-    uploadTask.on('state_changed', function (snapshot) {
-        //observe state change events such as progress , pause ,resume
-        //get task progress by including the number of bytes uploaded and total
-        //number of bytes
-        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        console.log("upload is " + progress + " done");
-    }, function (error) {
-        //handle error here
-        console.log(error.message);
-    }, function () {
-        uploadTask.snapshot.ref.getDownloadURL().then(function (downlaodURL) {
-            //get your upload image url here...
-            var url_image = downlaodURL;
-
-            //============ Input data ke database beserta url image ==================//
-            addpemateriRef.set({
-                id: id,
-                senin: senin,
-                selasa : selasa,
-                rabu: rabu,
-                kamis: kamis,
-                jumat: jumat,
-                sabtu: sabtu,
-                minggu: minggu
-            });
-
-            //reload setelah submit data
-            window.location.reload();
-        });
+function createJadwalPembelajaran(id, senin, selasa, rabu, kamis, jumat, sabtu, minggu) {
+    //============ Input data ke database beserta url image ==================//
+    addjadwalRef.set({
+        id: id,
+        senin: senin,
+        selasa: selasa,
+        rabu: rabu,
+        kamis: kamis,
+        jumat: jumat,
+        sabtu: sabtu,
+        minggu: minggu
     });
+
+    //reload setelah submit data
+    window.location.reload();
 }
 
 
@@ -100,16 +66,16 @@ function createPemateri(id, senin, selasa, rabu, kamis, jumat, sabtu, minggu); {
 //menampilkan data  
 pemateriRef.on("value", dataBerhasil, dataGagal);
 //membuat variabel untuk passing data ke table surat
-var view_pemateri = document.getElementById("table-pemateri");
+var view_jadwalpembelajaran = document.getElementById("table-jadwalpembelajaran");
 
 function dataBerhasil(data) {
     //membuat variabel kosong sebagai tempat menyimpan hasil loopingan data
-    var tabel_pemateri = "";
+    var tabel_jadwalpembelajaran = "";
     var nomor = 1;
     data.forEach(function (cetak) {
-        tabel_pemateri +=
+        tabel_jadwalpembelajaran +=
             "<tr>" +
-            
+            "<td>" + nomor + "</td>" +
             "<td>" + cetak.val().senin + "</td>" +
             "<td>" + cetak.val().selasa + "</td>" +
             "<td>" + cetak.val().rabu + "</td>" +
@@ -117,13 +83,12 @@ function dataBerhasil(data) {
             "<td>" + cetak.val().jumat + "</td>" +
             "<td>" + cetak.val().sabtu + "</td>" +
             "<td>" + cetak.val().minggu + "</td>" +
-            
             '<td><button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#bs-example-modal-lg-2" onclick="editPemateri(\'' + cetak.val().id + '\')">Edit</button> <button class="btn btn-sm btn-danger" onclick="deletePemateri(\'' + cetak.val().id + "')\">Hapus</button></td>" +
             "</tr>";
         nomor++;
     });
     //passing data dari variable tabel ke view_surat 
-    view_pemateri.innerHTML = tabel_pemateri;
+    view_jadwalpembelajaran.innerHTML = tabel_jadwalpembelajaran;
 }
 function dataGagal(err) {
     console.log(err);
@@ -132,15 +97,15 @@ function dataGagal(err) {
 // /*================ MENGEDIT DATA =================*/
 //menangkap parameter id yang dikirim ketika menekan tombol action edit
 //edit data surat 
-function editPemateri(id) {
+function editJadwalPembelajaran(id) {
 
-    var query = db.ref('program/pemateri/' + id);
+    var query = db.ref('jadwal/pembelajaran/' + id);
 
     // suatu perintah untuk mengambil data spesifik dari database berdasarkan id
-    query.once('value').then(isieditPemateri);
+    query.once('value').then(isieditPembelajaran);
 
     //function untuk passing data ke form edit data surat
-    function isieditPemateri(dataPemateri) {
+    function isieditPembelajaran(dataPemateri) {
         var data = dataPemateri.val();
         document.getElementById('nama-pemateri-edit').value = data.nama_pemateri;
         document.getElementById('hari-pemateri-edit').value = data.hari;

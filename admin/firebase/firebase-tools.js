@@ -1,16 +1,14 @@
 // Your web app's Firebase configuration
 var firebaseConfig = {
-    apiKey: "AIzaSyDyTyPt--P3iv2rie-OKTCDlolIDS4T1Es",
-    authDomain: "papan-informasi-38af4.firebaseapp.com",
-    databaseURL: "https://papan-informasi-38af4.firebaseio.com",
-    projectId: "papan-informasi-38af4",
-    storageBucket: "papan-informasi-38af4.appspot.com",
-    messagingSenderId: "393773272937",
-    appId: "1:393773272937:web:d615bd34e93a932b0237f8",
-    measurementId: "G-TW4F0YC295"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+    apiKey: "AIzaSyBozP-nzVAwq3UNF4yu0AM2V1T9pweXNPo",
+    authDomain: "fir-papaninformasi.firebaseapp.com",
+    projectId: "fir-papaninformasi",
+    storageBucket: "fir-papaninformasi.appspot.com",
+    messagingSenderId: "920683588565",
+    appId: "1:920683588565:web:0d12936bf5cb11f0c56b5c"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
 var d = new Date();
 var t = d.getTime();

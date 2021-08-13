@@ -85,9 +85,8 @@
                             <!-- Logo text -->
                             <span class="logo-text">
                                 <!-- Dark Logo icon -->
-                                <small class="dark-logo" style="color: black;">Admin | Papan Informasi Digital</small>
+                                <small class="dark-logo" style="color: black;">Admin | Papan Informasi</small>
                                 <!-- Light Logo icon -->
-                                <p class="light-logo">ardi</p>
                             </span>
                         </a>
                     </div>
@@ -180,6 +179,20 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false"><i
+                            class="mr-2 fas fa-users"></i><span class="hide-menu">Jadwal</span></a>
+                    <ul aria-expanded="false" class="collapse first-level base-level-line">
+                        <li class="sidebar-item"><a href="pembelajaran.html" class="sidebar-link"><span class="hide-menu"> Jadwal Pembelajaran
+                                </span></a>
+                        </li>
+                        <li class="sidebar-item"><a href="membersihkan.html" class="sidebar-link"><span class="hide-menu"> Jadwal Membersihkan
+                                </span></a>
+                        </li>
+                        <li class="sidebar-item"><a href="nginap-2.html" class="sidebar-link"><span class="hide-menu"> Jadwal Nginap
+                                </span></a>
+                        </li>
+                    </ul>
+                </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="inventaris.html" aria-expanded="false"><i class="icon-user"></i><span
                                     class="hide-menu">Inventaris</span></a>
@@ -225,13 +238,13 @@
                         <div class="card">
                             <div class="card-body overflow-auto">
                                 <button class="btn btn-sm waves-effect waves-light btn-rounded btn-primary mb-3"
-                                    data-toggle="modal" data-target="#bs-example-modal-lg">Tambah Data Pemateri</button>
+                                    data-toggle="modal" data-target="#bs-example-modal-lg">Tambah Data Pendamping</button>
                                 <table id="example" class="table table-striped" class="responsive display nowrap"
                                     cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Pemateri</th>
+                                            <th>Nama Pendamping</th>
                                             <th>Hari</th>
                                             <th>Foto</th>
                                             <th>Action</th>
@@ -296,7 +309,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myLargeModalLabel">Tambah Data Pemateri</h4>
+                    <h4 class="modal-title" id="myLargeModalLabel">Tambah Data Pendamping</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
@@ -308,7 +321,7 @@
                         <div class="form-group">
                             <label>Hari</label>
                             <select class="form-control" id="hari-piket" >
-                                <option>Pilih...</option>
+                                <option disabled selected >Pilih...</option>
                                 <option value="Senin">Senin</option>
                                 <option value="Selasa">Selasa</option>
                                 <option value="Rabu">Rabu</option>
@@ -344,7 +357,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myLargeModalLabel">Edit Data Pemateri</h4>
+                    <h4 class="modal-title" id="myLargeModalLabel">Edit Data Pendamping</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
@@ -356,14 +369,14 @@
                         </div>
                         <div class="form-group">
                             <label>Hari</label>
-                            <select class="form-control" id="hari-pemateri-edit" >
-                                <option>Pilih...</option>
+                            <select class="form-control" id="hari-pemateri-edit">
+                                <option disabled selected >Pilih...</option>
                                 <option value="Senin">Senin</option>
-                                     <option value="Selasa">Selasa</option>
-                                     <option value="Rabu">Rabu</option>
-                                     <option value="Kamis">Kamis</option>
+                                <option value="Selasa">Selasa</option>
+                                <option value="Rabu">Rabu</option>
+                                <option value="Kamis">Kamis</option>
                                 <option value="Jumat">Jumat</option>
-                                <!-- <option value="Sabtu">Sabtu</option> -->
+                                <option value="Sabtu">Sabtu</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -465,10 +478,10 @@
 
 
     <!-- The core Firebase JS SDK is always required and must be listed first !Harus Didefinisikan semua 4-->
-    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-storage.js"></script>
     <script src="firebase/firebase-piket.js"></script>
 
     <!-- SCRIPT JS UNTUK MEMBLOK INPUTAN SELAIN ANGKA -->

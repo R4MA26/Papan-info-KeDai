@@ -45,7 +45,6 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script src="firebase/firebase-login.js"></script>
 </head>
 
 <body>
@@ -82,9 +81,8 @@
                             <!-- Logo text -->
                             <span class="logo-text">
                                 <!-- Dark Logo icon -->
-                                <small class="dark-logo" style="color: black;">Admin | Papan Informasi Digital</small>
+                                <small class="dark-logo" style="color: black;">Admin | Papan Informasi</small>
                                 <!-- Light Logo icon -->
-                                <p class="light-logo">ardi</p>
                             </span>
                         </a>
                     </div>
@@ -177,6 +175,20 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false"><i
+                            class="mr-2 fas fa-users"></i><span class="hide-menu">Jadwal</span></a>
+                    <ul aria-expanded="false" class="collapse first-level base-level-line">
+                        <li class="sidebar-item"><a href="pembelajaran.html" class="sidebar-link"><span class="hide-menu"> Jadwal Pembelajaran
+                                </span></a>
+                        </li>
+                        <li class="sidebar-item"><a href="membersihkan.html" class="sidebar-link"><span class="hide-menu"> Jadwal Membersihkan
+                                </span></a>
+                        </li>
+                        <li class="sidebar-item"><a href="nginap-2.html" class="sidebar-link"><span class="hide-menu"> Jadwal Nginap
+                                </span></a>
+                        </li>
+                    </ul>
+                </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="inventaris.html" aria-expanded="false"><i class="icon-user"></i><span
                                     class="hide-menu">Inventaris</span></a>
@@ -349,10 +361,10 @@
 
 
     <!-- The core Firebase JS SDK is always required and must be listed first !Harus Didefinisikan semua 4-->
-    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-storage.js"></script>
     <script src="firebase/firebase-keorganisasian.js"></script>
 
     <!-- SCRIPT JS UNTUK MEMBLOK INPUTAN SELAIN ANGKA -->

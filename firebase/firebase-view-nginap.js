@@ -22,7 +22,7 @@ if (hariini == "Selasa") {
         //membuat variabel kosong sebagai tempat menyimpan hasil loopingan data
         var value_nginap = "";
         var count = 0;
-        var active = " active";
+        var active = "active";
         data.forEach(function (cetak) {
 
             if (cetak.val().hari == "Selasa") { //jika ada data yg harinya == Sabtu
@@ -80,7 +80,7 @@ else if (hariini == "Rabu") {
         //membuat variabel kosong sebagai tempat menyimpan hasil loopingan data
         var value_nginap = "";
         var count = 0;
-        var active = " active";
+        var active = "active";
         data.forEach(function (cetak) {
 
             if (cetak.val().hari == "Rabu") { //jika ada data yg harinya == Sabtu
@@ -138,7 +138,7 @@ else if (hariini == "Kamis") {
         //membuat variabel kosong sebagai tempat menyimpan hasil loopingan data
         var value_nginap = "";
         var count = 0;
-        var active = " active";
+        var active = "active";
         data.forEach(function (cetak) {
 
             if (cetak.val().hari == "Kamis") { //jika ada data yg harinya == Sabtu

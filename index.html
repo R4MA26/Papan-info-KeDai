@@ -476,54 +476,22 @@
                         </div>
                         <!-- <div style="overflow-x: scroll;"> -->
                         <div class="col-12 align-self-center card-header scroll-sidebar">
-                        
-                        <table class="table table-striped table-hover ">
-                            <thead>
-                              <tr class="bg-success text-white">
-                                <th scope="col">Senin</th>
-                                <th scope="col">Selasa</th>
-                                <th scope="col">Rabu</th>
-                                <th scope="col">Kamis</th>
-                                <th scope="col">Jum'at</th>
-                                <th scope="col">Sabtu</th>
-                                <th scope="col">Minggu</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td>Multimedia (14:45 WITA - Selesai)</td>
-                                <td>Sesi I : Network (14:45 WITA - Selesai)</td>
-                                <td>Sesi I : Program (14:45 WITA - Selesai)</td>
-                                <td>Sesi I : Hardware (14:45 WITA - Selesai)</td>
-                                <td>Keorganisasian (14:45 WITA - Selesai)</td>
-                                <td>Sesi I Keorganisasian (13:00 WITA - Selesai)</td>
-                                <td>-</td>
-                              </tr>
-                              <tr>
-                               
-                              </tr>
-                              <tr>
-                               <td>Kreativitas (14:45 WITA - Selesai)</td>
-                               <td>Sesi II : Network (18:00 WITA - Selesai)</td>
-                               <td>Sesi II : Program (18:00 WITA - Selesai)</td>
-                               <td>Sesi II : Hardware (18:00 WITA - Selesai)</td>
-                               <td>Kreativitas (14:45 WITA - Selesai)</td>
-                               <td>Sesi II Keorganisasian (16:00 WITA - Selesai)</td>
-                               <td>-</td>
-                              </tr>
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                  <tr class="bg-success text-white">
+                                    <th scope="col">Senin</th>
+                                    <th scope="col">Selasa</th>
+                                    <th scope="col">Rabu</th>
+                                    <th scope="col">Kamis</th>
+                                    <th scope="col">Jum'at</th>
+                                    <th scope="col">Sabtu</th>
+                                    <th scope="col">Minggu</th>
+                                  </tr>
+                                </thead>
+                                <tbody id="viewJadwalPembelajaran">
 
-                              <tr>
-                                  <td>-</td>
-                                  <td>Kreativitas (14:45 WITA - Selesai)</td>
-                                  <td>Kreativitas (14:45 WITA - Selesai)</td>
-                                  <td>-</td>
-                                  <td>-</td>
-                                  <td>Kreativitas (14:45 WITA - Selesai)</td>
-                                  <td>-</td>
-                              </tr>
-
-                            </tbody>
-                          </table>
+                                </tbody>
+                            </table>
                           </div>
 
                           <div class="col-12 align-self-center card-header bg-primary">
@@ -770,6 +738,8 @@
     <script src="firebase/firebase-view-proker.js"></script>
     <script src="firebase/firebase-view-inventaris.js"></script>
     <script src="firebase/firebase-view-surat.js"></script>
+    <script src="firebase/firebase-view-jadwalpembelajaran.js"></script>
+    
     <!-- <script>
         function scroll(speed) {
     $('html, body').animate({ scrollTop: $(document).height() - $(window).height() }, speed, function() {

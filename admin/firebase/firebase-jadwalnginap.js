@@ -25,15 +25,15 @@ var id = counter;
 var db = firebase.database();
 
 //referensi untuk tampilkan data
-var jadwalRef = db.ref("membersihkan");
+var jadwalRef = db.ref("jadwalnginap");
 
 //referensi untuk tambah data
-var addjadwalRef = db.ref("membersihkan/" + id);
+var addjadwalRef = db.ref("jadwalnginap/" + id);
 
 // PEMATERI SECTION
 /*================Mengambil data dari form=================*/
 document
-  .getElementById("form-jadwalmembersihkan")
+  .getElementById("form-jadwalnginap")
   .addEventListener("submit", (e) => {
     var senin = document.getElementById("senin-jadwal").value;
     var selasa = document.getElementById("selasa-jadwal").value;
@@ -86,7 +86,7 @@ function createJadwalPembelajaran(
 jadwalRef.on("value", dataBerhasil, dataGagal);
 //membuat variabel untuk passing data ke table surat
 var view_jadwalpembelajaran = document.getElementById(
-  "table-jadwalmembersihkan"
+  "table-jadwalnginap"
 );
 
 function dataBerhasil(data) {
@@ -139,7 +139,7 @@ function dataGagal(err) {
 //menangkap parameter id yang dikirim ketika menekan tombol action edit
 //edit data surat
 function editJadwalPembelajaran(id) {
-  var query = db.ref("membersihkan/" + id);
+  var query = db.ref("jadwalnginap/" + id);
 
   // suatu perintah untuk mengambil data spesifik dari database berdasarkan id
   query.once("value").then(isieditPembelajaran);
@@ -158,7 +158,7 @@ function editJadwalPembelajaran(id) {
 
   //listener tombol update pada form edit surat
   document
-    .getElementById("form-jadwalmembersihkan-edit")
+    .getElementById("form-jadwalnginap-edit")
     .addEventListener("submit", (e) => {
       //memasukkan value dari form input ke dalam variable
 
